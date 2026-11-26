@@ -22,7 +22,6 @@ input,textarea{font-family:inherit;outline:none;border:none;background:none;colo
 ::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-thumb{background:#374045;border-radius:3px}
 
-/* --------- Auth --------- */
 .auth-screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
   background:radial-gradient(ellipse at top,#1f2c33 0%,#0b141a 70%);padding:20px;z-index:100}
 .auth-card{background:var(--bg2);border-radius:16px;padding:32px 28px;width:100%;
@@ -30,86 +29,61 @@ input,textarea{font-family:inherit;outline:none;border:none;background:none;colo
 .auth-logo{font-size:52px;text-align:center;margin-bottom:4px}
 .auth-card h1{text-align:center;font-size:26px;font-weight:600;letter-spacing:-.5px}
 .auth-sub{text-align:center;color:var(--muted);font-size:13px;margin-bottom:22px}
-.auth-tabs{display:flex;gap:4px;margin-bottom:20px;background:var(--bg);
-  padding:4px;border-radius:10px}
-.auth-tab{flex:1;padding:10px;border-radius:8px;color:var(--muted);
-  font-size:13.5px;font-weight:600;transition:.2s}
+.auth-tabs{display:flex;gap:4px;margin-bottom:20px;background:var(--bg);padding:4px;border-radius:10px}
+.auth-tab{flex:1;padding:10px;border-radius:8px;color:var(--muted);font-size:13.5px;font-weight:600;transition:.2s}
 .auth-tab.active{background:var(--accent);color:#fff}
 .auth-form{display:flex;flex-direction:column;gap:10px}
-.auth-form input{background:var(--input);border-radius:10px;padding:13px 15px;
-  font-size:15px;border:1.5px solid transparent;transition:.2s}
+.auth-form input{background:var(--input);border-radius:10px;padding:13px 15px;font-size:15px;border:1.5px solid transparent;transition:.2s}
 .auth-form input:focus{border-color:var(--accent)}
-.btn-primary{background:var(--accent);color:#fff;padding:13px;border-radius:10px;
-  font-size:15px;font-weight:600;transition:.15s}
+.btn-primary{background:var(--accent);color:#fff;padding:13px;border-radius:10px;font-size:15px;font-weight:600;transition:.15s}
 .btn-primary:hover{filter:brightness(1.12)}
 .btn-primary:disabled{opacity:.5;cursor:not-allowed}
-.btn-secondary{background:var(--bg3);color:var(--text);padding:11px;border-radius:10px;
-  font-size:14px;font-weight:500;transition:.15s;border:1px solid var(--border)}
+.btn-secondary{background:var(--bg3);color:var(--text);padding:11px;border-radius:10px;font-size:14px;font-weight:500;transition:.15s;border:1px solid var(--border)}
 .btn-secondary:hover{background:var(--input)}
-.btn-danger{background:transparent;color:var(--danger);padding:10px;
-  border-radius:8px;font-size:13px;transition:.15s}
+.btn-danger{background:transparent;color:var(--danger);padding:10px;border-radius:8px;font-size:13px;transition:.15s}
 .btn-danger:hover{background:rgba(241,92,109,.1)}
 .auth-error{color:var(--danger);font-size:12.5px;text-align:center;min-height:16px}
-.auth-note{margin-top:18px;padding-top:14px;border-top:1px solid var(--border);
-  font-size:11.5px;color:var(--muted);text-align:center;line-height:1.6}
+.auth-note{margin-top:18px;padding-top:14px;border-top:1px solid var(--border);font-size:11.5px;color:var(--muted);text-align:center;line-height:1.6}
 
-/* --------- App --------- */
 .app-screen{display:flex;height:100vh;width:100%}
-.sidebar{width:360px;background:var(--bg2);border-right:1px solid var(--border);
-  display:flex;flex-direction:column;flex-shrink:0;position:relative}
-.sidebar-header{display:flex;align-items:center;gap:10px;padding:10px 14px;
-  background:var(--bg2);border-bottom:1px solid var(--border)}
-.avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#00a884,#005c4b);
-  display:flex;align-items:center;justify-content:center;font-weight:700;
-  font-size:16px;color:#fff;flex-shrink:0;user-select:none}
+.sidebar{width:360px;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;position:relative}
+.sidebar-header{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg2);border-bottom:1px solid var(--border)}
+.avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#00a884,#005c4b);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;color:#fff;flex-shrink:0;user-select:none}
 .avatar.sm{width:36px;height:36px;font-size:14px}
 .my-info{flex:1;min-width:0}
 .my-name{font-weight:600;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .my-status{font-size:11.5px;color:var(--accent)}
 .header-actions{display:flex;gap:2px}
-.icon-btn{width:34px;height:34px;border-radius:50%;font-size:17px;color:var(--muted);
-  display:flex;align-items:center;justify-content:center;transition:.15s}
+.icon-btn{width:34px;height:34px;border-radius:50%;font-size:17px;color:var(--muted);display:flex;align-items:center;justify-content:center;transition:.15s}
 .icon-btn:hover{background:var(--input);color:var(--text)}
 .search-box{padding:6px 10px;background:var(--bg2)}
-.search-box input{width:100%;background:var(--bg);padding:9px 14px;
-  border-radius:8px;font-size:13.5px}
+.search-box input{width:100%;background:var(--bg);padding:9px 14px;border-radius:8px;font-size:13.5px}
 .contact-list{list-style:none;overflow-y:auto;flex:1}
-.contact-item{display:flex;align-items:center;gap:12px;padding:9px 14px;
-  cursor:pointer;transition:.12s;border-bottom:1px solid rgba(255,255,255,.02)}
+.contact-item{display:flex;align-items:center;gap:12px;padding:9px 14px;cursor:pointer;transition:.12s;border-bottom:1px solid rgba(255,255,255,.02)}
 .contact-item:hover{background:var(--bg3)}
 .contact-item.active{background:var(--input)}
 .avatar-wrap{position:relative;flex-shrink:0}
-.online-dot{position:absolute;bottom:0;right:0;width:11px;height:11px;
-  background:#25d366;border-radius:50%;border:2px solid var(--bg2)}
+.online-dot{position:absolute;bottom:0;right:0;width:11px;height:11px;background:#25d366;border-radius:50%;border:2px solid var(--bg2)}
 .offline-dot{background:#8696a0!important}
 .contact-info{flex:1;min-width:0}
-.contact-name{font-size:14.5px;font-weight:500;white-space:nowrap;
-  overflow:hidden;text-overflow:ellipsis}
-.contact-email{font-size:11.5px;color:var(--muted);white-space:nowrap;
-  overflow:hidden;text-overflow:ellipsis}
-.contact-badge{font-size:10px;background:var(--accent);color:#fff;
-  padding:2px 6px;border-radius:8px;margin-left:6px;font-weight:600}
+.contact-name{font-size:14.5px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.contact-email{font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .empty-list{padding:40px 20px;text-align:center;color:var(--muted);font-size:13px;line-height:1.7}
 
 .chat-panel{flex:1;display:flex;flex-direction:column;background:var(--bg);position:relative;min-width:0}
-.empty-chat{flex:1;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;color:var(--muted);gap:10px;padding:20px;text-align:center}
+.empty-chat{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--muted);gap:10px;padding:20px;text-align:center}
 .empty-icon{font-size:80px;opacity:.25}
 .empty-chat h2{color:var(--text);font-weight:400;font-size:22px}
 .empty-chat p{font-size:13.5px}
 .chat-view{flex:1;display:flex;flex-direction:column;min-height:0}
-.chat-header{display:flex;align-items:center;gap:10px;padding:8px 14px;
-  background:var(--bg2);border-bottom:1px solid var(--border)}
+.chat-header{display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--bg2);border-bottom:1px solid var(--border)}
 .back-btn{display:none;width:32px;height:32px;font-size:20px;color:var(--muted)}
 .chat-info{flex:1;min-width:0}
 .chat-name{font-weight:600;font-size:14.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .chat-status{font-size:11.5px;color:var(--muted)}
 .chat-status.online{color:#25d366}
-.messages{flex:1;overflow-y:auto;padding:16px 6%;display:flex;flex-direction:column;
-  gap:2px;background:var(--bg)}
-.msg{max-width:78%;padding:6px 10px 6px;border-radius:8px;font-size:14.5px;
-  line-height:1.38;word-wrap:break-word;overflow-wrap:break-word;position:relative;
-  margin-bottom:1px;box-shadow:0 1px 1px rgba(0,0,0,.18);animation:msgIn .18s ease-out}
+.messages{flex:1;overflow-y:auto;padding:16px 6%;display:flex;flex-direction:column;gap:2px;background:var(--bg)}
+.msg{max-width:78%;padding:6px 10px 6px;border-radius:8px;font-size:14.5px;line-height:1.38;word-wrap:break-word;overflow-wrap:break-word;position:relative;margin-bottom:1px;box-shadow:0 1px 1px rgba(0,0,0,.18);animation:msgIn .18s ease-out}
 @keyframes msgIn{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
 .msg.sent{align-self:flex-end;background:var(--sent);border-bottom-right-radius:2px}
 .msg.received{align-self:flex-start;background:var(--recv);border-bottom-left-radius:2px}
@@ -119,51 +93,30 @@ input,textarea{font-family:inherit;outline:none;border:none;background:none;colo
 .msg .media audio{width:100%;margin-top:3px;border-radius:6px}
 .msg .media a{color:#53bdeb;text-decoration:underline;font-size:13px;word-break:break-all}
 .msg .media .loading{font-size:12px;color:var(--muted);padding:8px;text-align:center}
-.msg.system{align-self:center;background:var(--bg3);font-size:12px;color:var(--muted);
-  max-width:90%;text-align:center;padding:6px 12px;border-radius:8px}
-.date-sep{align-self:center;background:var(--bg3);font-size:11.5px;
-  color:var(--muted);padding:4px 10px;border-radius:8px;margin:10px 0 6px}
+.date-sep{align-self:center;background:var(--bg3);font-size:11.5px;color:var(--muted);padding:4px 10px;border-radius:8px;margin:10px 0 6px}
 
-.composer{display:flex;align-items:flex-end;gap:6px;padding:8px 12px;
-  background:var(--bg2);border-top:1px solid var(--border)}
-.attach-btn{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;
-  justify-content:center;font-size:18px;color:var(--muted);cursor:pointer;transition:.15s}
+.composer{display:flex;align-items:flex-end;gap:6px;padding:8px 12px;background:var(--bg2);border-top:1px solid var(--border)}
+.attach-btn{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--muted);cursor:pointer;transition:.15s}
 .attach-btn:hover{background:var(--input);color:var(--text)}
 .attach-btn.has-files{background:var(--accent);color:#fff}
-#messageInput{flex:1;background:var(--input);border-radius:10px;padding:10px 14px;
-  font-size:15px;resize:none;max-height:120px;line-height:1.4;min-height:40px}
-.send-btn{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;
-  display:flex;align-items:center;justify-content:center;font-size:15px;transition:.15s}
+#messageInput{flex:1;background:var(--input);border-radius:10px;padding:10px 14px;font-size:15px;resize:none;max-height:120px;line-height:1.4;min-height:40px}
+.send-btn{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;transition:.15s}
 .send-btn:hover{filter:brightness(1.12)}
 
-/* --------- Modales --------- */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;
-  align-items:center;justify-content:center;z-index:200;padding:20px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;align-items:center;justify-content:center;z-index:200;padding:20px}
 .modal.open{display:flex}
-.modal-card{background:var(--bg2);border-radius:14px;padding:24px;
-  width:100%;max-width:440px;max-height:90vh;overflow-y:auto;
-  box-shadow:0 24px 64px rgba(0,0,0,.7)}
+.modal-card{background:var(--bg2);border-radius:14px;padding:24px;width:100%;max-width:440px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,.7)}
 .modal-card h2{font-size:19px;margin-bottom:16px;font-weight:600}
-.modal-card label{display:block;font-size:12px;color:var(--muted);
-  margin-bottom:6px;margin-top:14px}
-.modal-card textarea,.modal-card input[type=text]{width:100%;background:var(--bg);
-  border-radius:8px;padding:10px 12px;font-size:13px;font-family:monospace;
-  border:1px solid var(--border);min-height:100px;resize:vertical}
+.modal-card label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px;margin-top:14px}
+.modal-card textarea,.modal-card input[type=text]{width:100%;background:var(--bg);border-radius:8px;padding:10px 12px;font-size:13px;font-family:monospace;border:1px solid var(--border);min-height:100px;resize:vertical}
 .modal-card input[type=text]{min-height:auto;font-family:inherit;font-size:14px}
 .modal-actions{display:flex;gap:8px;margin-top:18px;justify-content:flex-end;flex-wrap:wrap}
-.relay-status{font-size:12.5px;color:var(--muted);padding:8px 10px;background:var(--bg);
-  border-radius:8px;margin-top:6px;font-family:monospace;word-break:break-all}
+.relay-status{font-size:12.5px;color:var(--muted);padding:8px 10px;background:var(--bg);border-radius:8px;margin-top:6px;font-family:monospace;word-break:break-all}
 
-/* --------- Misc --------- */
-.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);
-  background:var(--bg3);color:var(--text);padding:11px 20px;border-radius:10px;
-  font-size:13.5px;box-shadow:0 8px 24px rgba(0,0,0,.5);z-index:300;
-  opacity:0;transition:.3s;max-width:90vw;text-align:center}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--bg3);color:var(--text);padding:11px 20px;border-radius:10px;font-size:13.5px;box-shadow:0 8px 24px rgba(0,0,0,.5);z-index:300;opacity:0;transition:.3s;max-width:90vw;text-align:center}
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 .toast.error{background:#4a1f24;color:#f8b4bc}
-.spinner{width:16px;height:16px;border:2px solid var(--muted);border-top-color:var(--accent);
-  border-radius:50%;animation:spin .7s linear infinite;display:inline-block;
-  vertical-align:middle;margin-right:6px}
+.spinner{width:16px;height:16px;border:2px solid var(--muted);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;display:inline-block;vertical-align:middle;margin-right:6px}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 @media(max-width:768px){
@@ -177,7 +130,6 @@ input,textarea{font-family:inherit;outline:none;border:none;background:none;colo
 </head>
 <body>
 
-<!-- ============ AUTH ============ -->
 <div id="authScreen" class="auth-screen">
   <div class="auth-card">
     <div class="auth-logo">🔒</div>
@@ -207,7 +159,6 @@ input,textarea{font-family:inherit;outline:none;border:none;background:none;colo
   </div>
 </div>
 
-<!-- ============ APP ============ -->
 <div id="appScreen" class="app-screen" style="display:none">
   <aside class="sidebar">
     <header class="sidebar-header">
@@ -248,8 +199,7 @@ input,textarea{font-family:inherit;outline:none;border:none;background:none;colo
       <div class="messages" id="messages"></div>
       <form class="composer" id="composer" onsubmit="Messages.send(event)">
         <label for="fileInput" class="attach-btn" id="attachBtn" title="Adjuntar">📎</label>
-        <input type="file" id="fileInput" style="display:none" multiple
-               onchange="Messages.onFilesSelected()">
+        <input type="file" id="fileInput" style="display:none" multiple onchange="Messages.onFilesSelected()">
         <textarea id="messageInput" placeholder="Escribe un mensaje" rows="1"
                   oninput="UI.autoGrow(this)" onkeydown="Messages.onKey(event)"></textarea>
         <button type="submit" class="send-btn" title="Enviar">➤</button>
@@ -258,7 +208,6 @@ input,textarea{font-family:inherit;outline:none;border:none;background:none;colo
   </main>
 </div>
 
-<!-- ============ MODAL: Añadir contacto ============ -->
 <div id="addContactModal" class="modal">
   <div class="modal-card">
     <h2>Añadir contacto</h2>
@@ -274,7 +223,6 @@ input,textarea{font-family:inherit;outline:none;border:none;background:none;colo
   </div>
 </div>
 
-<!-- ============ MODAL: Ajustes ============ -->
 <div id="settingsModal" class="modal">
   <div class="modal-card">
     <h2>Ajustes y respaldo</h2>
@@ -378,13 +326,6 @@ const DB = {
       r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error);
     });
   },
-  async del(store, key) {
-    const s = await this._store(store, 'readwrite');
-    return new Promise((res, rej) => {
-      const r = s.delete(key);
-      r.onsuccess = () => res(); r.onerror = () => rej(r.error);
-    });
-  },
   async clear(store) {
     const s = await this._store(store, 'readwrite');
     return new Promise((res, rej) => {
@@ -395,7 +336,7 @@ const DB = {
 };
 
 /* ==================================================================
-   3. CRIPTOGRAFÍA (Web Crypto API — ECDH P-256 + AES-GCM)
+   3. CRIPTOGRAFÍA
    ================================================================== */
 const Crypto = {
   async generateIdentity() {
@@ -471,12 +412,11 @@ const State = {
   peerReady: false,
   peerConnections: {},
   objectUrls: new Set(),
-  msgListeners: {},
   presenceTimer: null,
 };
 
 /* ==================================================================
-   5. NOSTR RELAY (fallback offline + acks) — NIP-44 sobre kind 4
+   5. NOSTR RELAY
    ================================================================== */
 const Nostr = {
   relays: [
@@ -486,18 +426,13 @@ const Nostr = {
     'wss://nostr.mom',
     'wss://relay.snort.social'
   ],
-  pool: null,
-  sk: null,       // Uint8Array secreta secp256k1
-  pk: null,       // hex pública
-  sub: null,
-  ready: false,
-  tools: null,
-  lastSince: 0,
+  pool: null, sk: null, pk: null, sub: null,
+  ready: false, tools: null, lastSince: 0,
+  _acksInFlight: new Set(),
 
   async init() {
     if (this.ready || !State.user) return;
     try {
-      // Import dinámico — evita cargar ESM si nunca se usa
       const tools = await import('https://esm.sh/nostr-tools@2.7.0');
       const nip44 = await import('https://esm.sh/nostr-tools@2.7.0/nip44');
       this.tools = { ...tools, nip44 };
@@ -526,7 +461,6 @@ const Nostr = {
         [{ kinds: [4], '#p': [this.pk], since: this.lastSince }],
         { onevent: ev => this.onEvent(ev) }
       );
-
       this.ready = true;
       this._refreshStatus();
       setInterval(() => this.resub(), 120000);
@@ -556,27 +490,31 @@ const Nostr = {
       const plaintext = nip44.decrypt(ev.content, convKey);
       const env = JSON.parse(plaintext);
 
-      // Acuse de recibo
+      // ACK
       if (env.ack) {
-        const stored = await DB.get('messages', env.ack);
-        if (stored && !stored.delivered) {
-          stored.delivered = true;
-          await DB.put('messages', stored);
-          if (State.currentChat) UI.renderMessages();
+        if (this._acksInFlight.has(env.ack)) return;
+        this._acksInFlight.add(env.ack);
+        try {
+          const stored = await DB.get('messages', env.ack);
+          if (stored && !stored.delivered) {
+            stored.delivered = true;
+            await DB.put('messages', stored);
+            if (State.currentChat) UI.renderMessages();
+          }
+        } finally {
+          this._acksInFlight.delete(env.ack);
         }
         return;
       }
 
-      // Mensaje normal — dedup por id local (env.id), NO por ev.id
+      // Mensaje
       if (env.v !== 1 || !env.id || !env.from) return;
       if (await DB.get('messages', env.id)) return;
 
-      // Si viene tarjeta y no conocemos al remitente, añadirlo
       if (env.fromCard && !State.contacts[env.from]) {
         try { await Contacts.add(env.fromCard); UI.renderContacts(); } catch(_){}
       }
 
-      // Despoja fromCard antes de almacenar
       const { fromCard, ...cleanEnv } = env;
       await Messages.receive(cleanEnv);
     } catch (e) {
@@ -608,7 +546,6 @@ const Nostr = {
         tags: [['p', recipientNostrPk]],
         content: ct
       }, this.sk);
-
       const results = await Promise.allSettled(this.pool.publish(this.relays, ev));
       return results.some(r => r.status === 'fulfilled');
     } catch (e) {
@@ -648,15 +585,10 @@ const Auth = {
     const encPriv = await Crypto.encryptPriv(kp.privateKey, kek);
 
     const account = {
-      uid: uid(),
-      username, email,
-      publicKey: pubJwk,
-      encPriv,
-      salt: b64.from(salt),
-      createdAt: Date.now()
+      uid: uid(), username, email, publicKey: pubJwk,
+      encPriv, salt: b64.from(salt), createdAt: Date.now()
     };
     await DB.put('accounts', account);
-
     State.user = {uid: account.uid, email, username, publicKey: pubJwk};
     State.privKey = kp.privateKey;
     localStorage.setItem('sc_session', account.uid);
@@ -717,64 +649,58 @@ const Contacts = {
     Peer.checkPresence(contact.uid);
   },
 
-async importFromInput() {
-  try {
-    const raw = $('contactInput').value.trim();
-    if (!raw) { toast('Pega una tarjeta de contacto', true); return; }
+  async importFromInput() {
+    try {
+      const raw = $('contactInput').value.trim();
+      if (!raw) { toast('Pega una tarjeta de contacto', true); return; }
 
-    let parsed;
-    try { parsed = JSON.parse(raw); }
-    catch { throw new Error('JSON inválido'); }
+      let parsed;
+      try { parsed = JSON.parse(raw); }
+      catch { throw new Error('JSON inválido'); }
 
-    // ---- Detectar si es un bundle y extraer tarjeta ----
-    const looksLikeBundle =
-      parsed && (Array.isArray(parsed.messages) ||
-                 Array.isArray(parsed.contacts) ||
-                 parsed.exportedBy || parsed.from);
+      // Detectar si es un bundle (backup o conversación) y extraer tarjeta
+      const looksLikeBundle =
+        parsed && (Array.isArray(parsed.messages) ||
+                   Array.isArray(parsed.contacts) ||
+                   parsed.exportedBy || parsed.from);
 
-    if (looksLikeBundle) {
-      const sender = parsed.from || parsed.exportedBy;
-      if (sender && sender.uid && sender.publicKey) {
-        if (sender.uid === State.user.uid)
-          throw new Error('Esta tarjeta es tuya. Compártela con otra persona.');
-        parsed = sender;                                // extraer remitente
-      } else if (Array.isArray(parsed.contacts) && parsed.contacts.length) {
-        // Backup completo sin remitente claro → usar el primer contacto
-        const first = parsed.contacts.find(c => c.uid !== State.user.uid);
-        if (!first) throw new Error('El bundle no contiene contactos ajenos');
-        parsed = first;
-      } else {
-        throw new Error(
-          'Esto es un .scbundle, no una tarjeta. Usa Ajustes → ' +
-          '"Importar un .scbundle" para restaurar contactos y mensajes.'
-        );
+      if (looksLikeBundle) {
+        const sender = parsed.from || parsed.exportedBy;
+        if (sender && sender.uid && sender.publicKey) {
+          if (sender.uid === State.user.uid)
+            throw new Error('Esta tarjeta es tuya. Compártela con otra persona.');
+          parsed = sender;
+        } else if (Array.isArray(parsed.contacts) && parsed.contacts.length) {
+          const first = parsed.contacts.find(c => c.uid !== State.user.uid);
+          if (!first) throw new Error('El bundle no contiene contactos ajenos');
+          parsed = first;
+        } else {
+          throw new Error('Esto es un .scbundle, no una tarjeta. Usa Ajustes → "Importar un .scbundle" para restaurar contactos y mensajes.');
+        }
       }
+
+      if (!parsed.uid || !parsed.publicKey || !parsed.username)
+        throw new Error('Tarjeta inválida: faltan uid, publicKey o username');
+      if (parsed.uid === State.user.uid)
+        throw new Error('No puedes añadirte a ti mismo');
+
+      await this.add({
+        uid: parsed.uid,
+        username: parsed.username,
+        email: parsed.email || '',
+        publicKey: parsed.publicKey,
+        nostrPk: parsed.nostrPk || null,
+        peerId: parsed.peerId || ('sc-' + parsed.uid)
+      });
+
+      $('contactInput').value = '';
+      UI.closeModal('addContactModal');
+      UI.renderContacts();
+      toast('Contacto añadido');
+    } catch (e) {
+      toast('Error: ' + e.message, true);
     }
-
-    // ---- Validar tarjeta ----
-    if (!parsed.uid || !parsed.publicKey || !parsed.username)
-      throw new Error('Tarjeta inválida: faltan uid, publicKey o username');
-    if (parsed.uid === State.user.uid)
-      throw new Error('No puedes añadirte a ti mismo');
-
-    // ---- Añadir ----
-    await this.add({
-      uid: parsed.uid,
-      username: parsed.username,
-      email: parsed.email || '',
-      publicKey: parsed.publicKey,
-      nostrPk: parsed.nostrPk || null,
-      peerId: parsed.peerId || ('sc-' + parsed.uid)
-    });
-
-    $('contactInput').value = '';
-    UI.closeModal('addContactModal');
-    UI.renderContacts();
-    toast('Contacto añadido');
-  } catch (e) {
-    toast('Error: ' + e.message, true);
-  }
-},
+  },
 
   myCard() {
     return JSON.stringify({
@@ -792,6 +718,8 @@ async importFromInput() {
    8. MENSAJES
    ================================================================== */
 const Messages = {
+  _inflight: new Set(),
+
   onFilesSelected() {
     const inp = $('fileInput');
     State.pendingFiles = Array.from(inp.files);
@@ -832,10 +760,7 @@ const Messages = {
         };
         await DB.put('messages', msg);
 
-        // 1) P2P directo
         const deliveredDirect = await Peer.tryDeliver(msg);
-
-        // 2) Fallback relay Nostr si P2P falló
         if (!deliveredDirect && other.nostrPk) {
           const deliveredRelay = await Nostr.send(msg, other.nostrPk);
           if (deliveredRelay) {
@@ -863,7 +788,6 @@ const Messages = {
           ciphertext: ''
         };
         await DB.put('messages', msg);
-        // Los binarios van solo por P2P (demasiado grandes para relays)
         await Peer.tryDeliver(msg);
       }
       State.pendingFiles = [];
@@ -885,35 +809,48 @@ const Messages = {
   },
 
   async receive(envelope) {
-    const existing = await DB.get('messages', envelope.id);
-    if (existing) return;
-    const msg = { ...envelope, delivered: true };
-    await DB.put('messages', msg);
-    if (envelope.mediaBlob) {
-      await DB.put('media', { id: envelope.mediaId, blob: envelope.mediaBlob });
-      delete msg.mediaBlob;
-    }
-    if (State.currentChat && State.currentChat.uid === envelope.from) {
-      UI.renderMessages();
-    } else {
-      toast('Nuevo mensaje de ' + (State.contacts[envelope.from]?.username || 'desconocido'));
+    if (!envelope || !envelope.id) return;
+    if (this._inflight.has(envelope.id)) return;
+    this._inflight.add(envelope.id);
+    try {
+      const existing = await DB.get('messages', envelope.id);
+      if (existing) return;
+
+      const { mediaBlob, ...msgBase } = envelope;
+      const msg = { ...msgBase, delivered: true };
+      await DB.put('messages', msg);
+
+      if (mediaBlob && envelope.mediaId) {
+        await DB.put('media', { id: envelope.mediaId, blob: mediaBlob });
+      }
+
+      if (State.currentChat && State.currentChat.uid === envelope.from) {
+        UI.renderMessages();
+      } else {
+        toast('Nuevo mensaje de ' +
+          (State.contacts[envelope.from]?.username || 'desconocido'));
+      }
+    } finally {
+      this._inflight.delete(envelope.id);
     }
   }
 };
 
 /* ==================================================================
-   9. PEERJS (WebRTC — presencia + entrega en tiempo real)
+   9. PEERJS
    ================================================================== */
 const Peer = {
   init() {
     if (State.peer || !State.user) return;
     try {
       State.peer = new Peer('sc-' + State.user.uid, { debug: 1 });
+
       State.peer.on('open', () => {
         State.peerReady = true;
         $('myStatus').textContent = 'En línea · P2P';
         this.startPresenceLoop();
       });
+
       State.peer.on('error', err => {
         console.warn('PeerJS:', err.type, err.message);
         if (err.type === 'unavailable-id') {
@@ -922,13 +859,30 @@ const Peer = {
         State.peerReady = false;
         $('myStatus').textContent = 'Sin conexión P2P';
       });
+
+      // Conexiones ENTRANTES: un ÚNICO data listener por conn
       State.peer.on('connection', conn => {
-        conn.on('open', () => {
-          conn.on('data', data => this.onData(conn.peer, data));
-          conn.on('close', () => { State.online[conn.peer.replace('sc-','')] = false;
-            UI.renderContacts(); UI.updateChatHeader(); });
-        });
+        const peerUid = conn.peer.replace('sc-','');
+
         conn.on('data', data => this.onData(conn.peer, data));
+
+        conn.on('open', () => {
+          if (!State.peerConnections[peerUid]?.open) {
+            State.peerConnections[peerUid] = conn;
+          }
+          State.online[peerUid] = true;
+          UI.renderContacts();
+          UI.updateChatHeader();
+        });
+
+        conn.on('close', () => {
+          if (State.peerConnections[peerUid] === conn) {
+            delete State.peerConnections[peerUid];
+          }
+          State.online[peerUid] = false;
+          UI.renderContacts();
+          UI.updateChatHeader();
+        });
       });
     } catch (e) { console.warn('No PeerJS:', e); }
   },
@@ -949,8 +903,13 @@ const Peer = {
       });
       State.online[contactUid] = true;
       conn.on('data', data => this.onData(peerId, data));
-      conn.on('close', () => { State.online[contactUid] = false;
-        UI.renderContacts(); UI.updateChatHeader(); });
+      conn.on('close', () => {
+        if (State.peerConnections[contactUid] === conn) {
+          delete State.peerConnections[contactUid];
+        }
+        State.online[contactUid] = false;
+        UI.renderContacts(); UI.updateChatHeader();
+      });
     } catch (e) {
       State.online[contactUid] = false;
     }
@@ -998,13 +957,10 @@ const Peer = {
     const senderUid = fromPeerId.replace('sc-','');
     if (data.type === 'msg') {
       await Messages.receive(data.payload);
-
-      // Enviar acuse por relay Nostr (para que el emisor marque ✓✓)
       const sender = State.contacts[senderUid];
       if (sender?.nostrPk && data.payload?.id) {
-        try {
-          await Nostr.send({ ack: data.payload.id, ts: Date.now() }, sender.nostrPk);
-        } catch(_){}
+        try { await Nostr.send({ ack: data.payload.id, ts: Date.now() }, sender.nostrPk); }
+        catch(_){}
       }
     } else if (data.type === 'ping') {
       const conn = State.peerConnections[senderUid];
@@ -1014,7 +970,7 @@ const Peer = {
 };
 
 /* ==================================================================
-   10. BUNDLES (.scbundle)
+   10. BUNDLES
    ================================================================== */
 const Bundles = {
   async exportAll() {
@@ -1026,18 +982,19 @@ const Bundles = {
       const messages = await DB.getAll('messages');
       const mediaItems = await DB.getAll('media');
       const mediaMap = {};
-      for (const m of mediaItems) {
-        mediaMap[m.id] = await this.blobToB64(m.blob);
-      }
+      for (const m of mediaItems) mediaMap[m.id] = await this.blobToB64(m.blob);
+
       const bundle = {
         version: 1,
         exportedAt: Date.now(),
         exportedBy: {
           uid: me.uid, username: me.username, email: me.email,
-          publicKey: me.publicKey, nostrPk: me.nostrPk || null
+          publicKey: me.publicKey, nostrPk: me.nostrPk || null,
+          peerId: 'sc-' + me.uid
         },
         contacts,
-        messages: messages.map(m => ({ ...m, mediaB64: m.mediaId ? mediaMap[m.mediaId] : undefined })),
+        messages: messages.map(m => ({ ...m,
+          mediaB64: m.mediaId ? mediaMap[m.mediaId] : undefined })),
         media: mediaItems.map(m => ({ id: m.id }))
       };
       this.downloadJson(bundle, `securechat_${me.username}_${Date.now()}.scbundle`);
@@ -1062,115 +1019,119 @@ const Bundles = {
       const bundle = {
         version: 1, exportedAt: Date.now(),
         from: { uid: State.user.uid, username: State.user.username,
-                publicKey: State.user.publicKey, nostrPk: State.user.nostrPk || null },
+                email: State.user.email,
+                publicKey: State.user.publicKey,
+                nostrPk: State.user.nostrPk || null,
+                peerId: 'sc-' + State.user.uid },
         to:   { uid: other.uid, username: other.username,
-                publicKey: other.publicKey, nostrPk: other.nostrPk || null },
-        messages: msgs.map(m => ({ ...m, mediaB64: m.mediaId ? mediaMap[m.mediaId] : undefined }))
+                email: other.email || '',
+                publicKey: other.publicKey,
+                nostrPk: other.nostrPk || null,
+                peerId: other.peerId || ('sc-' + other.uid) },
+        messages: msgs.map(m => ({ ...m,
+          mediaB64: m.mediaId ? mediaMap[m.mediaId] : undefined }))
       };
       this.downloadJson(bundle, `conv_${other.username}_${Date.now()}.scbundle`);
       toast('Conversación exportada');
     } catch (e) { toast('Error: ' + e.message, true); }
   },
 
-async importFromFile() {
-  const inp = $('bundleInput');
-  const file = inp.files[0];
-  if (!file) { toast('Selecciona un .scbundle', true); return; }
+  async importFromFile() {
+    const inp = $('bundleInput');
+    const file = inp.files[0];
+    if (!file) { toast('Selecciona un .scbundle', true); return; }
 
-  try {
-    const text = await file.text();
-    let bundle;
-    try { bundle = JSON.parse(text); }
-    catch { throw new Error('JSON inválido — ¿seguro que es un .scbundle?'); }
-    if (!bundle || typeof bundle !== 'object') throw new Error('Formato inválido');
+    try {
+      const text = await file.text();
+      let bundle;
+      try { bundle = JSON.parse(text); }
+      catch { throw new Error('JSON inválido — ¿seguro que es un .scbundle?'); }
+      if (!bundle || typeof bundle !== 'object') throw new Error('Formato inválido');
 
-    const hasContacts = Array.isArray(bundle.contacts);
-    const hasMessages = Array.isArray(bundle.messages);
-    if (!hasContacts && !hasMessages)
-      throw new Error('El bundle no contiene ni contactos ni mensajes');
+      const hasContacts = Array.isArray(bundle.contacts);
+      const hasMessages = Array.isArray(bundle.messages);
+      if (!hasContacts && !hasMessages)
+        throw new Error('El bundle no contiene ni contactos ni mensajes');
 
-    let contactsAdded = 0;
-    let messagesImported = 0;
-    const me = State.user.uid;
+      let contactsAdded = 0;
+      let messagesImported = 0;
+      const me = State.user.uid;
 
-    // ---- 1) Restaurar contactos explícitos (backup completo) ----
-    if (hasContacts) {
-      for (const c of bundle.contacts) {
-        if (!c || !c.uid || !c.publicKey) continue;
-        if (c.uid === me) continue;                    // no añadirme a mí mismo
-        if (State.contacts[c.uid]) continue;           // ya existe → skip silencioso
+      // 1) Contactos explícitos (backup completo)
+      if (hasContacts) {
+        for (const c of bundle.contacts) {
+          if (!c || !c.uid || !c.publicKey) continue;
+          if (c.uid === me) continue;
+          if (State.contacts[c.uid]) continue;
+          try {
+            await Contacts.add({
+              uid: c.uid,
+              username: c.username || c.uid.slice(0, 8),
+              email: c.email || '',
+              publicKey: c.publicKey,
+              nostrPk: c.nostrPk || null,
+              peerId: c.peerId || ('sc-' + c.uid)
+            });
+            contactsAdded++;
+          } catch (e) {
+            console.warn('No se pudo añadir contacto', c.uid, e.message);
+          }
+        }
+      }
+
+      // 2) Remitente: bundle.from (conv) o bundle.exportedBy (backup)
+      const sender = bundle.from || bundle.exportedBy;
+      if (sender && sender.uid && sender.publicKey
+          && sender.uid !== me
+          && !State.contacts[sender.uid]) {
         try {
           await Contacts.add({
-            uid: c.uid,
-            username: c.username || c.uid.slice(0, 8),
-            email: c.email || '',
-            publicKey: c.publicKey,
-            nostrPk: c.nostrPk || null,
-            peerId: c.peerId || ('sc-' + c.uid)
+            uid: sender.uid,
+            username: sender.username || sender.uid.slice(0, 8),
+            email: sender.email || '',
+            publicKey: sender.publicKey,
+            nostrPk: sender.nostrPk || null,
+            peerId: sender.peerId || ('sc-' + sender.uid)
           });
           contactsAdded++;
         } catch (e) {
-          console.warn('No se pudo añadir contacto', c.uid, e.message);
+          console.warn('No se pudo añadir remitente', e.message);
         }
       }
-    }
 
-    // ---- 2) Añadir remitente (conversación O backup) ----
-    //   exportConversation → bundle.from
-    //   exportAll          → bundle.exportedBy
-    const sender = bundle.from || bundle.exportedBy;
-    if (sender && sender.uid && sender.publicKey
-        && sender.uid !== me
-        && !State.contacts[sender.uid]) {
-      try {
-        await Contacts.add({
-          uid: sender.uid,
-          username: sender.username || sender.uid.slice(0, 8),
-          email: sender.email || '',
-          publicKey: sender.publicKey,
-          nostrPk: sender.nostrPk || null,
-          peerId: sender.peerId || ('sc-' + sender.uid)
-        });
-        contactsAdded++;
-      } catch (e) {
-        console.warn('No se pudo añadir remitente', e.message);
+      // 3) Mensajes
+      const messages = hasMessages ? bundle.messages : [];
+      for (const m of messages) {
+        if (!m || !m.id || !m.from || !m.to) continue;
+        if (m.from !== me && m.to !== me) continue;
+        if (await DB.get('messages', m.id)) continue;
+        const msg = { ...m };
+        if (m.mediaB64 && m.mediaId) {
+          await DB.put('media', { id: m.mediaId, blob: this.b64ToBlob(m.mediaB64) });
+          delete msg.mediaB64;
+        }
+        await DB.put('messages', msg);
+        messagesImported++;
       }
-    }
 
-    // ---- 3) Importar mensajes (solo los míos) ----
-    const messages = hasMessages ? bundle.messages : [];
-    for (const m of messages) {
-      if (!m || !m.id || !m.from || !m.to) continue;
-      if (m.from !== me && m.to !== me) continue;      // no es mi conversación
-      if (await DB.get('messages', m.id)) continue;    // duplicado
-      const msg = { ...m };
-      if (m.mediaB64 && m.mediaId) {
-        await DB.put('media', { id: m.mediaId, blob: this.b64ToBlob(m.mediaB64) });
-        delete msg.mediaB64;
+      inp.value = '';
+      UI.closeModal('settingsModal');
+      UI.renderContacts();
+      if (State.currentChat) UI.renderMessages();
+
+      if (!contactsAdded && !messagesImported) {
+        toast('Nada nuevo que importar (¿ya lo tenías?)');
+      } else {
+        const parts = [];
+        if (contactsAdded) parts.push(`${contactsAdded} contacto${contactsAdded>1?'s':''}`);
+        if (messagesImported) parts.push(`${messagesImported} mensaje${messagesImported>1?'s':''}`);
+        toast('Importado: ' + parts.join(' y '));
       }
-      await DB.put('messages', msg);
-      messagesImported++;
+    } catch (e) {
+      console.error(e);
+      toast('Error importando: ' + e.message, true);
     }
-
-    // ---- 4) Feedback honesto ----
-    inp.value = '';
-    UI.closeModal('settingsModal');
-    UI.renderContacts();
-    if (State.currentChat) UI.renderMessages();
-
-    if (!contactsAdded && !messagesImported) {
-      toast('Nada nuevo que importar (¿ya lo tenías?)', false);
-    } else {
-      const parts = [];
-      if (contactsAdded) parts.push(`${contactsAdded} contacto${contactsAdded>1?'s':''}`);
-      if (messagesImported) parts.push(`${messagesImported} mensaje${messagesImported>1?'s':''}`);
-      toast('Importado: ' + parts.join(' y '));
-    }
-  } catch (e) {
-    console.error(e);
-    toast('Error importando: ' + e.message, true);
-  }
-},
+  },
 
   async blobToB64(blob) {
     const buf = await blob.arrayBuffer();
@@ -1201,6 +1162,9 @@ async importFromFile() {
    11. UI
    ================================================================== */
 const UI = {
+  _rendering: false,
+  _pendingRender: false,
+
   autoGrow(el) {
     el.style.height = 'auto';
     el.style.height = Math.min(el.scrollHeight, 120) + 'px';
@@ -1293,7 +1257,22 @@ const UI = {
     el.className = 'chat-status' + (online ? ' online' : '');
   },
 
+  // Lock anti-duplicado
   async renderMessages() {
+    if (!State.currentChat) return;
+    if (this._rendering) { this._pendingRender = true; return; }
+    this._rendering = true;
+    try {
+      do {
+        this._pendingRender = false;
+        await this._doRenderMessages();
+      } while (this._pendingRender);
+    } finally {
+      this._rendering = false;
+    }
+  },
+
+  async _doRenderMessages() {
     if (!State.currentChat) return;
     const container = $('messages');
     for (const u of State.objectUrls) URL.revokeObjectURL(u);
@@ -1442,14 +1421,14 @@ async function startSession() {
   await Contacts.loadAll();
   UI.renderContacts();
 
-  // P2P primero (rápido), luego relay en paralelo
   Peer.init();
   Nostr.init().catch(()=>{});
 
-  // Actualiza el subtítulo cuando cambie el estado del relay
   const tryUpdateStatus = () => {
     const online = State.peerReady;
-    $('myStatus').textContent = online ? 'En línea · P2P' + (Nostr.ready ? ' + Relay' : '') : 'Conectando…';
+    $('myStatus').textContent = online
+      ? 'En línea · P2P' + (Nostr.ready ? ' + Relay' : '')
+      : 'Conectando…';
   };
   tryUpdateStatus();
   const statusLoop = setInterval(tryUpdateStatus, 4000);
