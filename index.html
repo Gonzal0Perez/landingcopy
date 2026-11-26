@@ -1,4 +1,4 @@
-<!DOCTYPE html> que 
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -717,25 +717,64 @@ const Contacts = {
     Peer.checkPresence(contact.uid);
   },
 
-  async importFromInput() {
-    try {
-      const raw = $('contactInput').value.trim();
-      if (!raw) { toast('Pega una tarjeta de contacto', true); return; }
-      const c = JSON.parse(raw);
-      if (!c.uid || !c.publicKey || !c.username)
-        throw new Error('Formato inválido');
-      await this.add({
-        uid: c.uid, username: c.username, email: c.email || '',
-        publicKey: c.publicKey,
-        nostrPk: c.nostrPk || null,
-        peerId: c.peerId || ('sc-' + c.uid)
-      });
-      $('contactInput').value = '';
-      UI.closeModal('addContactModal');
-      UI.renderContacts();
-      toast('Contacto añadido');
-    } catch (e) { toast('Error: ' + e.message, true); }
-  },
+async importFromInput() {
+  try {
+    const raw = $('contactInput').value.trim();
+    if (!raw) { toast('Pega una tarjeta de contacto', true); return; }
+
+    let parsed;
+    try { parsed = JSON.parse(raw); }
+    catch { throw new Error('JSON inválido'); }
+
+    // ---- Detectar si es un bundle y extraer tarjeta ----
+    const looksLikeBundle =
+      parsed && (Array.isArray(parsed.messages) ||
+                 Array.isArray(parsed.contacts) ||
+                 parsed.exportedBy || parsed.from);
+
+    if (looksLikeBundle) {
+      const sender = parsed.from || parsed.exportedBy;
+      if (sender && sender.uid && sender.publicKey) {
+        if (sender.uid === State.user.uid)
+          throw new Error('Esta tarjeta es tuya. Compártela con otra persona.');
+        parsed = sender;                                // extraer remitente
+      } else if (Array.isArray(parsed.contacts) && parsed.contacts.length) {
+        // Backup completo sin remitente claro → usar el primer contacto
+        const first = parsed.contacts.find(c => c.uid !== State.user.uid);
+        if (!first) throw new Error('El bundle no contiene contactos ajenos');
+        parsed = first;
+      } else {
+        throw new Error(
+          'Esto es un .scbundle, no una tarjeta. Usa Ajustes → ' +
+          '"Importar un .scbundle" para restaurar contactos y mensajes.'
+        );
+      }
+    }
+
+    // ---- Validar tarjeta ----
+    if (!parsed.uid || !parsed.publicKey || !parsed.username)
+      throw new Error('Tarjeta inválida: faltan uid, publicKey o username');
+    if (parsed.uid === State.user.uid)
+      throw new Error('No puedes añadirte a ti mismo');
+
+    // ---- Añadir ----
+    await this.add({
+      uid: parsed.uid,
+      username: parsed.username,
+      email: parsed.email || '',
+      publicKey: parsed.publicKey,
+      nostrPk: parsed.nostrPk || null,
+      peerId: parsed.peerId || ('sc-' + parsed.uid)
+    });
+
+    $('contactInput').value = '';
+    UI.closeModal('addContactModal');
+    UI.renderContacts();
+    toast('Contacto añadido');
+  } catch (e) {
+    toast('Error: ' + e.message, true);
+  }
+},
 
   myCard() {
     return JSON.stringify({
@@ -1033,48 +1072,105 @@ const Bundles = {
     } catch (e) { toast('Error: ' + e.message, true); }
   },
 
-  async importFromFile() {
-    const inp = $('bundleInput');
-    const file = inp.files[0];
-    if (!file) { toast('Selecciona un .scbundle', true); return; }
-    try {
-      const text = await file.text();
-      const bundle = JSON.parse(text);
-      if (!bundle.messages) throw new Error('Formato inválido');
+async importFromFile() {
+  const inp = $('bundleInput');
+  const file = inp.files[0];
+  if (!file) { toast('Selecciona un .scbundle', true); return; }
 
-      if (bundle.from && bundle.from.uid !== State.user.uid) {
+  try {
+    const text = await file.text();
+    let bundle;
+    try { bundle = JSON.parse(text); }
+    catch { throw new Error('JSON inválido — ¿seguro que es un .scbundle?'); }
+    if (!bundle || typeof bundle !== 'object') throw new Error('Formato inválido');
+
+    const hasContacts = Array.isArray(bundle.contacts);
+    const hasMessages = Array.isArray(bundle.messages);
+    if (!hasContacts && !hasMessages)
+      throw new Error('El bundle no contiene ni contactos ni mensajes');
+
+    let contactsAdded = 0;
+    let messagesImported = 0;
+    const me = State.user.uid;
+
+    // ---- 1) Restaurar contactos explícitos (backup completo) ----
+    if (hasContacts) {
+      for (const c of bundle.contacts) {
+        if (!c || !c.uid || !c.publicKey) continue;
+        if (c.uid === me) continue;                    // no añadirme a mí mismo
+        if (State.contacts[c.uid]) continue;           // ya existe → skip silencioso
         try {
           await Contacts.add({
-            uid: bundle.from.uid,
-            username: bundle.from.username || bundle.from.uid.slice(0,8),
-            email: bundle.from.email || '',
-            publicKey: bundle.from.publicKey,
-            nostrPk: bundle.from.nostrPk || null,
-            peerId: 'sc-' + bundle.from.uid
+            uid: c.uid,
+            username: c.username || c.uid.slice(0, 8),
+            email: c.email || '',
+            publicKey: c.publicKey,
+            nostrPk: c.nostrPk || null,
+            peerId: c.peerId || ('sc-' + c.uid)
           });
-        } catch(_){}
-      }
-
-      let imported = 0;
-      for (const m of bundle.messages) {
-        if (m.from !== State.user.uid && m.to !== State.user.uid) continue;
-        const existing = await DB.get('messages', m.id);
-        if (existing) continue;
-        const msg = { ...m };
-        if (m.mediaB64 && m.mediaId) {
-          await DB.put('media', { id: m.mediaId, blob: this.b64ToBlob(m.mediaB64) });
-          delete msg.mediaB64;
+          contactsAdded++;
+        } catch (e) {
+          console.warn('No se pudo añadir contacto', c.uid, e.message);
         }
-        await DB.put('messages', msg);
-        imported++;
       }
-      inp.value = '';
-      UI.closeModal('settingsModal');
-      UI.renderContacts();
-      if (State.currentChat) UI.renderMessages();
-      toast(`${imported} mensajes importados`);
-    } catch (e) { toast('Error importando: ' + e.message, true); }
-  },
+    }
+
+    // ---- 2) Añadir remitente (conversación O backup) ----
+    //   exportConversation → bundle.from
+    //   exportAll          → bundle.exportedBy
+    const sender = bundle.from || bundle.exportedBy;
+    if (sender && sender.uid && sender.publicKey
+        && sender.uid !== me
+        && !State.contacts[sender.uid]) {
+      try {
+        await Contacts.add({
+          uid: sender.uid,
+          username: sender.username || sender.uid.slice(0, 8),
+          email: sender.email || '',
+          publicKey: sender.publicKey,
+          nostrPk: sender.nostrPk || null,
+          peerId: sender.peerId || ('sc-' + sender.uid)
+        });
+        contactsAdded++;
+      } catch (e) {
+        console.warn('No se pudo añadir remitente', e.message);
+      }
+    }
+
+    // ---- 3) Importar mensajes (solo los míos) ----
+    const messages = hasMessages ? bundle.messages : [];
+    for (const m of messages) {
+      if (!m || !m.id || !m.from || !m.to) continue;
+      if (m.from !== me && m.to !== me) continue;      // no es mi conversación
+      if (await DB.get('messages', m.id)) continue;    // duplicado
+      const msg = { ...m };
+      if (m.mediaB64 && m.mediaId) {
+        await DB.put('media', { id: m.mediaId, blob: this.b64ToBlob(m.mediaB64) });
+        delete msg.mediaB64;
+      }
+      await DB.put('messages', msg);
+      messagesImported++;
+    }
+
+    // ---- 4) Feedback honesto ----
+    inp.value = '';
+    UI.closeModal('settingsModal');
+    UI.renderContacts();
+    if (State.currentChat) UI.renderMessages();
+
+    if (!contactsAdded && !messagesImported) {
+      toast('Nada nuevo que importar (¿ya lo tenías?)', false);
+    } else {
+      const parts = [];
+      if (contactsAdded) parts.push(`${contactsAdded} contacto${contactsAdded>1?'s':''}`);
+      if (messagesImported) parts.push(`${messagesImported} mensaje${messagesImported>1?'s':''}`);
+      toast('Importado: ' + parts.join(' y '));
+    }
+  } catch (e) {
+    console.error(e);
+    toast('Error importando: ' + e.message, true);
+  }
+},
 
   async blobToB64(blob) {
     const buf = await blob.arrayBuffer();
